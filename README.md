@@ -1,6 +1,6 @@
 ---
 name: Xamarin.Forms - SkiaSharp and Xamarin.Forms
-description: 'The SkiaSharpFormsDemos program demonstrates the use of #skiasharp in a Xamarin.Forms application.'
+description: 'The SkiaSharpFormsDemos program demonstrates the use of #skiasharp in a Xamarin.Forms application. THIS VERSION IS UPDATED FOR XAMARIN 4.8 AND THE LATEST SKIASHARP RELEASE'
 page_type: sample
 languages:
 - csharp
