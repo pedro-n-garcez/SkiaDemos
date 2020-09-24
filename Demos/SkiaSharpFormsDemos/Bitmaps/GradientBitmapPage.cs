@@ -9,8 +9,8 @@ using SkiaSharp.Views.Forms;
 
 namespace SkiaSharpFormsDemos.Bitmaps
 {
-	public class GradientBitmapPage : ContentPage
-	{
+    public class GradientBitmapPage : ContentPage
+    {
         const int REPS = 100;
 
         Stopwatch stopwatch = new Stopwatch();
@@ -21,19 +21,25 @@ namespace SkiaSharpFormsDemos.Bitmaps
 
         SKCanvasView canvasView;
 
-        public GradientBitmapPage ()
+        public GradientBitmapPage()
         {
             Title = "Gradient Bitmap";
 
-            bitmaps[0] = FillBitmapSetPixel(out descriptions[0], out elapsedTimes[0]);
-            bitmaps[1] = FillBitmapPixelsProp(out descriptions[1], out elapsedTimes[1]);
-            bitmaps[2] = FillBitmapBytePtr(out descriptions[2], out elapsedTimes[2]);
-            bitmaps[4] = FillBitmapUintPtr(out descriptions[4], out elapsedTimes[4]);
-            bitmaps[6] = FillBitmapUintPtrColor(out descriptions[6], out elapsedTimes[6]);
-            bitmaps[3] = FillBitmapByteBuffer(out descriptions[3], out elapsedTimes[3]);
-            bitmaps[5] = FillBitmapUintBuffer(out descriptions[5], out elapsedTimes[5]);
-            bitmaps[7] = FillBitmapUintBufferColor(out descriptions[7], out elapsedTimes[7]);
+            try
+            {
+                bitmaps[0] = FillBitmapSetPixel(out descriptions[0], out elapsedTimes[0]);
+                bitmaps[1] = FillBitmapPixelsProp(out descriptions[1], out elapsedTimes[1]);
+                bitmaps[2] = FillBitmapBytePtr(out descriptions[2], out elapsedTimes[2]);
+                bitmaps[4] = FillBitmapUintPtr(out descriptions[4], out elapsedTimes[4]);
+                bitmaps[6] = FillBitmapUintPtrColor(out descriptions[6], out elapsedTimes[6]);
+                bitmaps[3] = FillBitmapByteBuffer(out descriptions[3], out elapsedTimes[3]);
+                bitmaps[5] = FillBitmapUintBuffer(out descriptions[5], out elapsedTimes[5]);
+                bitmaps[7] = FillBitmapUintBufferColor(out descriptions[7], out elapsedTimes[7]);
+            }
+            catch (Exception e)
+            {
 
+            }
             canvasView = new SKCanvasView();
             canvasView.PaintSurface += OnCanvasViewPaintSurface;
             Content = canvasView;
@@ -53,6 +59,7 @@ namespace SkiaSharpFormsDemos.Bitmaps
                         bitmap.SetPixel(col, row, new SKColor((byte)col, 0, (byte)row));
                     }
 
+            //
             milliseconds = (int)stopwatch.ElapsedMilliseconds;
             return bitmap;
         }
@@ -64,7 +71,7 @@ namespace SkiaSharpFormsDemos.Bitmaps
 
             stopwatch.Restart();
 
-            SKColor[] pixels = new SKColor[256 * 256]; 
+            SKColor[] pixels = new SKColor[256 * 256];
 
             for (int rep = 0; rep < REPS; rep++)
                 for (int row = 0; row < 256; row++)
@@ -181,7 +188,7 @@ namespace SkiaSharpFormsDemos.Bitmaps
                         buffer[row, col, 2] = (byte)row;   // blue
                         buffer[row, col, 3] = 0xFF;        // alpha
                     }
-    
+
             unsafe
             {
                 fixed (byte* ptr = buffer)
@@ -277,7 +284,7 @@ namespace SkiaSharpFormsDemos.Bitmaps
 
         void Display(SKCanvas canvas, int index, SKRect rect)
         {
-            string text = String.Format("{0}: {1:F2} msec", descriptions[index], 
+            string text = String.Format("{0}: {1:F2} msec", descriptions[index],
                                         (double)elapsedTimes[index] / REPS);
 
             SKRect bounds = new SKRect();

@@ -33,7 +33,7 @@ namespace SkiaSharpFormsDemos.Bitmaps
             lattice.YDivs = new int[] { 100, 300, 400 };
 
             int count = (lattice.XDivs.Length + 1) * (lattice.YDivs.Length + 1);
-            lattice.Flags = new SKLatticeFlags[count];
+            //lattice flags deprecated or removed //.Flags = new SKLatticeFlags[count];
 
             canvas.DrawBitmapLattice(bitmap, lattice, info.Rect);
         }

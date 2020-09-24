@@ -55,7 +55,7 @@ namespace SkiaSharpFormsDemos.Bitmaps
                     IntPtr pointer = bitmaps[frame].GetPixels();
 
                     // Create an SKCodecOptions value to specify the frame
-                    SKCodecOptions codecOptions = new SKCodecOptions(frame, false);
+                    SKCodecOptions codecOptions = new SKCodecOptions(frame);//frame, false);
 
                     // Copy pixels from the frame into the bitmap
                     codec.GetPixels(imageInfo, pointer, codecOptions);

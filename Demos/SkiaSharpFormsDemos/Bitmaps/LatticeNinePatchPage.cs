@@ -29,7 +29,7 @@ namespace SkiaSharpFormsDemos.Bitmaps
             SKLattice lattice = new SKLattice();
             lattice.XDivs = new int[] { 100, 400 };
             lattice.YDivs = new int[] { 100, 400 };
-            lattice.Flags = new SKLatticeFlags[9]; 
+            //lattice flags deprecated or removed lattice.Flags = new SKLatticeFlags[9]; 
 
             canvas.DrawBitmapLattice(bitmap, lattice, info.Rect);
         }
