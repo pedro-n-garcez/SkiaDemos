@@ -37,7 +37,31 @@
                           Detail="Use gradients, bitmap tiling, blur, and drop shadow"
                           Command="{Binding NavigateCommand}"
                           CommandParameter="{x:Type local:Effects.EffectsHomePage}" />
+                
+                <TextCell Text="Example 1"
+                          Detail="The Transform Rotation 3D tool"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type local:Transforms.Rotation3DPage}" />
 
+                <TextCell Text="Example 2"
+                          Detail="Skew Experiment"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type local:Transforms.SkewExperimentPage}" />
+
+                <TextCell Text="Example 3"
+                          Detail="Rotate And Revolve"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type local:Transforms.RotateAndRevolvePage}" />
+
+                <TextCell Text="Example 4"
+                          Detail="Hendecagram Animation"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type local:Transforms.HendecagramAnimationPage}" />
+
+                <TextCell Text="Custom Mashup"
+                          Detail="Solution for the mashup of other 2d animation tools"
+                          Command="{Binding NavigateCommand}"
+                          CommandParameter="{x:Type local:Transforms.Mashup}" />
             </TableSection>
         </TableRoot>
     </TableView>
